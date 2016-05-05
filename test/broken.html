@@ -1,0 +1,597 @@
+<!-- formViewer-v0.jsp -->
+
+<LINK REL='stylesheet' HREF="/providerlink/css/newContentStyles.css" TYPE="text/css"> 
+
+<html>
+
+<head>
+
+</head>
+
+<div id="menuBarPop" style="position:relative;top:0px;">
+
+
+
+
+
+		
+			
+			
+				    
+				
+					<input type="button" name="saveCopyButton" value="SaveCopy" onclick="javascript:document.forms[0].saveCopy.value='yes';;checkIfButtonActive('Save Copy');" onmouseover="this.className = 'newMenuButtonOnMouseOver'" onmouseout="this.className = 'newMenuButton'" id="saveCopyButton" class="newMenuButton">
+				
+				
+					<input type="button" name="checkButton" value="Check" onclick="javascript:document.forms[0].checkForm.value='yes';checkIfButtonActive('Check');" onmouseover="this.className = 'newMenuButtonOnMouseOver'" onmouseout="this.className = 'newMenuButton'" id="checkButton" class="newMenuButton">
+				 
+			
+		
+
+		
+	
+	
+	
+			<!-- this is a saved document -->
+			
+			<input type="button" name="moveButton" value="Move" onclick="document.location='/providerlink/do/folderItemMoveInit?documentFolderId=36384316&documentId=47418260&fromDocViewer=true&patientId=34719795';" onmouseover="this.className = 'newMenuButtonOnMouseOver'" onmouseout="this.className = 'newMenuButton'" id="moveButton" class="newMenuButton">
+
+			
+
+			<input type="button" name="deleteButton" value="Delete" onclick="confirm('Delete this form?')?document.location='/providerlink/do/folderItemDelete?documentFolderId=36384316&documentId=47418260&fromDocViewer=true':true;" onmouseover="this.className = 'newMenuButtonOnMouseOver'" onmouseout="this.className = 'newMenuButton'" id="deleteButton" class="newMenuButton">
+    	
+	
+
+	<input type="button" name="formatButton" value="Format" onclick="this.className = 'newMenuButtonPressed';return buttonClick(this, 'formatMenu');" onmouseover="this.className = 'newMenuButtonOnMouseOver'" onmouseout="this.className = 'newMenuButton'" id="formatButton" class="newMenuButton">
+
+	<div id="formatMenu" class="newMenu">
+		
+			<input type="button" name="pdfFormatButton" value="PDF" onclick="javascript:document.forms[0].printForm.value='yes';document.forms[0].submit();" onmouseover="this.className = 'newMenuItemOnMouseOver'" onmouseout="this.className = 'newMenuItem';document.forms[0].printForm.value='no';		document.forms[0].target='_self'" id="pdfFormatButton" class="newMenuItem">
+		
+		
+			<input type="button" name="txtFormatButton" value="TXT" onclick="javascript:document.forms[0].setAttribute('target', 'formresult');window.open('', 'formresult', 'menubar=no,toolbar=no,location=no,scrollbars=yes,resizable=yes,width=500,height=700');document.forms[0].textForm.value='yes'; document.forms[0].submit();" onmouseover="this.className = 'newMenuItemOnMouseOver'" onmouseout="this.className = 'newMenuItem';document.forms[0].textForm.value='no';	document.forms[0].target='_self'" id="txtFormatButton" class="newMenuItem">		
+		
+		<input type="button" name="xmlFormatButton" value="XML" onclick="javascript:document.forms[0].printFormAsXml.value='yes';document.forms[0].submit();" onmouseover="this.className = 'newMenuItemOnMouseOver'" onmouseout="this.className = 'newMenuItem';document.forms[0].printFormAsXml.value='no';	document.forms[0].target='_self'" id="xmlFormatButton" class="newMenuItem">
+	</div>
+
+	
+		<input type="button" name="signaturesButton" value="Signatures" onclick="this.className = 'newMenuButtonPressed';return buttonClick(this, 'sigMenu');" onmouseover="this.className = 'newMenuButtonOnMouseOver'" onmouseout="this.className = 'newMenuButton'" id="signaturesButton" class="newMenuButton">
+	
+	
+
+
+
+	<!-- this is a saved document -->
+	<a href="/providerlink/do/documentViewer/initNotes?documentId=47418260" class="menuButton">Note</a>
+
+
+
+
+
+    
+
+<a class="menuButton" href="javascript:RH_ShowHelp(0, '/webhelp/PLink_Help_System.htm>NewWindow', HH_HELP_CONTEXT, 324)">Help</a>
+    
+
+	<input type="button" name="logoutButton" value="Logout" onclick="document.location='/providerlink/do/logout';" onmouseover="this.className = 'newMenuButtonOnMouseOver'" onmouseout="this.className = 'newMenuButton'" id="logoutButton" class="newMenuButton">
+
+</div>
+
+
+
+	
+	  
+    	<div id="sigMenu" class="newMenu">
+
+								<input type="button" name="sendForSignatureButton" value="Send For Signature" onclick="signatureCheck()?document.location='/providerlink/do/mail/init?patientId=34719795&signatureRequest=true&signatureDocument=47418260&doc=true':true;" onmouseover="this.className = 'newMenuItemOnMouseOver'" onmouseout="this.className = 'newMenuItem'" id="sendForSignatureButton" class="newMenuItem">
+							
+						
+					
+	    		    
+						
+						
+							
+							
+								<input type="button" name="printForSignatureButton" value="Print For Signature" onclick="signatureCheck()?printForSignature():true;" onmouseover="this.className = 'newMenuItemOnMouseOver'" onmouseout="this.className = 'newMenuItem'" id="printForSignatureButton" class="newMenuItem">
+							
+						
+						
+						
+	        		
+					
+						
+						
+							<input type="button" name="electronicallySignButton" value="Electronically Sign" onclick="signatureCheck()?document.location='/providerlink/do/signature/sign?documentFolderId=36384316&patientId=34719795&doc=true&signatureDocument=47418260':true" onmouseover="this.className = 'newMenuItemOnMouseOver'" onmouseout="this.className = 'newMenuItem'" id="electronicallySignButton" class="newMenuItem">
+						
+					
+
+						
+					
+		    		    
+						
+							<input type="button" name="viewSignaturesButton" value="View Signatures" disabled="disabled" id="viewSignaturesButton" class="disabledMenuItem">
+						
+										
+				
+				
+        		
+	    </div>
+	  
+	
+
+
+
+
+
+
+<!-- crumbsHeader.jsp -->
+<div class="noprint">
+	<table id="crumbsTable">
+	<tr>
+		<td class="crumbsHeaderLogo">
+		</td>
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/mainWindow/init?view=all');} ">Main Window</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/patSearch/search?memberReference=0016400779&amp;search=Search&amp;');} ">Patient Search</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/patient/get?patientId=34562549');} ">WINFREY, TYLER L</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/patient/status?patientStatus=Admitted');} ">Admitted</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/patient/status?patientStatus=Discharged');} ">Discharged</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/patient/status?patientStatus=Deceased');} ">Deceased</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/attachmentManager/init?parentId=35417477&amp;patientId=34719795');} ">Document Folder: Home</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/attachmentManager/init?parentId=36384319&amp;patientId=34719795');} ">Document Folder: Transportation</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/xform?method=edit&amp;documentFolderId=35417477&amp;doc=true&amp;documentId=64148305&amp;formType=8186&amp;patientId=34719795');} ">CSHCS Third Party Liability (TPL)</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/attachmentManager/init?parentId=36384316&amp;patientId=34719795');} ">Document Folder: NOA</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/attachmentManager/init?parentId=36384317&amp;patientId=34719795');} ">Document Folder: Care Plan</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/attachmentManager/init?parentId=36384318&amp;patientId=34719795');} ">Document Folder: Progress Notes</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/attachmentManager/init?parentId=36384315&amp;patientId=34719795');} ">Document Folder: Medical</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/xform?method=edit&amp;documentFolderId=36384316&amp;doc=true&amp;documentId=48199978&amp;formType=8470&amp;patientId=34719795');} ">Notice of Action, Add Provider</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/attachmentManager/init?parentId=36384314&amp;patientId=34719795');} ">Document Folder: Application/Financial</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/attachmentManager/init?parentId=36384320&amp;patientId=34719795');} ">Document Folder: Miscellaneous</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/xform?method=edit&amp;documentFolderId=36384316&amp;doc=true&amp;documentId=47298718&amp;formType=8506&amp;patientId=34719795');} ">Notice of Action</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/xform?method=edit&amp;documentFolderId=36384316&amp;doc=true&amp;documentId=47330394&amp;formType=8506&amp;patientId=34719795');} ">Notice of Action</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/xform?method=edit&amp;documentFolderId=36384316&amp;doc=true&amp;documentId=47418260&amp;formType=8506&amp;patientId=34719795');} ">Notice of Action</a>
+						
+				 
+			</td>
+		  	
+			<td style="vertical-align:middle"><span class="crumbsSeparator">&nbsp;</span></td>
+		  
+			           
+			<td class="crumbsText">
+				 
+				
+						
+						
+							<a href="javascript:if (crumbsBounceProtect()){isChanged('/providerlink/do/xform?method=edit&amp;documentFolderId=36384316&amp;doc=true&amp;documentId=64048228&amp;formType=8506&amp;patientId=34719795');} ">Notice of Action</a>
+						
+				 
+			</td>
+		  
+		 
+	</tr>
+</table>
+<div class="greenLine">&nbsp;</div>
+</div>
+
+<div class="bodyContainer">
+
+	
+	<title>Michigan Department of Community Health--Children's Special Health Care Services--Notice of Action</title><body onmouseover="xy(event.pageX,event.pageY);" onload="htmlBodyOnLoadFunctions();">
+<span style="visibility:visible; position:absolute; display:none; left:124px; top:10px;" id="hover"></span>
+<form name="eform" action="/providerlink/do/xform?method=save&formType=8506" method="post">
+<input value="no" name="checkForm" type="hidden"><input value="no" name="printForm" type="hidden"><input value="no" name="saveCopy" type="hidden"><input value="no" name="saveClose" type="hidden"><input value="no" name="saveSend" type="hidden"><input value="no" name="refreshForm" type="hidden"><input value="no" name="textForm" type="hidden"><input type="hidden" name="readonly" value="yes"><input type="hidden" name="xFormAttribute" value="47418260"><input type="hidden" name="patientId" value="34719795"><input type="hidden" name="doc" value="true"><input type="hidden" name="hiddenCountyName" value="">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr></td><tr><td style="text-align:center"><span style="font:bold 12pt arial;">Michigan Department of Community Health</span></td></td><tr><td style="text-align:center"><span style="font:bold 12pt arial;">Children's Special Health Care Services</span></td></td><tr><td style="text-align:center"><span style="font:bold 12pt arial;">Notice of Action</span></td></tr>
+<tr>
+<td style="text-align:center"><span style="color:red;font-weight:bold;font-size:12pt">*</span> indicates a required field
+                            </td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+<tr height="100%"><td>&nbsp;</td></tr>
+<tr></td><tr><td style="text-align:left"><span style="font: bold italic 9.5pt arial;"></span></td></tr>
+</table>
+<br>
+<div id="sectionOpt1" style="display:all;">
+<span style="font-weight:bold;font-style:none;text-decoration:none;font-size:12pt;font-family:Arial">Client Information</span>
+<table width="100%" cellspacing="0" cellpadding="0" style="border:1px solid black">
+<tbody>
+<tr>
+<td style="padding: 2px" width="50%">
+<table>
+<tr><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Client Name&nbsp;&nbsp;&nbsp;</span></td><td style="padding-top: 2px;padding-bottom: 2px"><input value="FORWARD, LYRA B" id="section1field1" name="section1field1" size="32"></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Medicaid/CSHCS ID&nbsp;&nbsp;&nbsp;</span></td><td style="padding-top: 2px;padding-bottom: 2px"><input value="1002852001" id="section1field2" name="section1field2" size="20"></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Date of Birth&nbsp;&nbsp;&nbsp;</span></td><td style="padding-top: 2px;padding-bottom: 2px"><input value="03/22/2009" id="section1field3" name="section1field3" size="20"></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">County Code&nbsp;&nbsp;&nbsp;</span></td><td style="padding-top: 2px;padding-bottom: 2px"><input value="28" id="section1field4" name="section1field4" size="20"></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+</table>
+</td><td style="padding: 2px" width="50%">
+<table>
+<tr><td 	colspan="1<"><span onmouseover="this.style.cursor='help';hover_popup('CSHCS eligibility end date');" onmouseout="hover_clear()" style="cursor: help;"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">CSHCS End Date&nbsp;&nbsp;&nbsp;</span></span></td><td style="padding-top: 2px;padding-bottom: 2px"><input value="08/31/2011" name="section1field14" id="section1field14" size="12"><a href="javascript://" onclick="window.open('/providerlink/js/daypicker.html?inputfield=section1field14','dayPicker','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,height=235,width=200');"> <img border="0" src="/providerlink/images/calendar.gif" alt="Select a Date"/></a>   (mm/dd/yyyy)</td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr>
+<td style="padding-top: 2px;padding-bottom: 2px"><span onmouseover="this.style.cursor='help';hover_popup('LHDs do not usually need to enter these codes. CSHCS state staff will verify current eligibility codes if there is a question for the medical consultant.');" onmouseout="hover_clear()" style="cursor: help;"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">CSHCS current diagnosis&nbsp;&nbsp;&nbsp;</span></span></td><td><textarea name="section1field16" id="section1field16" cols="20" rows="3"> 749.00     </textarea></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+<br>
+<div id="sectionOpt2" style="display:all;">
+<span style="font-weight:bold;font-style:none;text-decoration:none;font-size:12pt;font-family:Arial">Information</span>
+<table width="100%" cellspacing="0" cellpadding="0" style="border:1px solid black">
+<tbody>
+<tr>
+<td style="padding: 2px" width="33%">
+<table>
+<tr><td><table cellpadding="0" cellspacing="0" id="cb1"><td style="padding-top: 2px;padding-bottom: 2px"><input type="checkbox" name="section2field5" id="section2field5" onclick="section2field5ProcessCheckBox();" check=""></td><td>&nbsp;&nbsp;</td><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Address Change&nbsp;&nbsp;&nbsp;</span></td></table></tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td><table cellpadding="0" cellspacing="0" id="cb1"><td style="padding-top: 2px;padding-bottom: 2px"><input type="checkbox" name="section2field6" id="section2field6" onclick="section2field6ProcessCheckBox();" check=""></td><td>&nbsp;&nbsp;</td><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">New Phone Number&nbsp;&nbsp;&nbsp;</span></td></table></tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td><table cellpadding="0" cellspacing="0" id="cb1"><td style="padding-top: 2px;padding-bottom: 2px"><input type="checkbox" name="section2field7" id="section2field7" onclick="section2field7ProcessCheckBox();" check=""></td><td>&nbsp;&nbsp;</td><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Name Change&nbsp;&nbsp;&nbsp;</span></td></table></tr>
+<tr>
+<td height="10px"></td>
+</tr>
+</table>
+</td><td style="padding: 2px" width="33%">
+<table>
+<tr><td><table cellpadding="0" cellspacing="0" id="cb1"><td style="padding-top: 2px;padding-bottom: 2px"><input type="checkbox" name="section2field8" id="section2field8" onclick="section2field8ProcessCheckBox();" check=""></td><td>&nbsp;&nbsp;</td><td 	colspan="1<"><span onmouseover="this.style.cursor='help';hover_popup('The e-form &quot;Notice of Action, Add Provider&quot; is more detailed, therefore LHDs might find it more useful.');" onmouseout="hover_clear()" style="cursor: help;"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Add Provider&nbsp;&nbsp;&nbsp;</span></span></td></table></tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Provider Specialty&nbsp;&nbsp;&nbsp;</span></td><td style="padding-top: 2px;padding-bottom: 2px"><input value="" id="section2field15" name="section2field15" size="20"></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td><table cellpadding="0" cellspacing="0" id="cb1"><td style="padding-top: 2px;padding-bottom: 2px"><input type="checkbox" name="section2field18" id="section2field18" onclick="section2field18ProcessCheckBox();" check=""></td><td>&nbsp;&nbsp;</td><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Delete Provider&nbsp;&nbsp;&nbsp;</span></td></table></tr>
+<tr>
+<td height="10px"></td>
+</tr>
+</table>
+</td><td style="padding: 2px" width="33%">
+<table>
+<tr><td><table cellpadding="0" cellspacing="0" id="cb1"><td style="padding-top: 2px;padding-bottom: 2px"><input type="checkbox" name="section2field10" id="section2field10" onclick="section2field10ProcessCheckBox();" check=""></td><td>&nbsp;&nbsp;</td><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Questions&nbsp;&nbsp;&nbsp;</span></td></table></tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td><table cellpadding="0" cellspacing="0" id="cb1"><td style="padding-top: 2px;padding-bottom: 2px"><input type="checkbox" name="section2field19" id="section2field19" onclick="section2field19ProcessCheckBox();" check=""></td><td>&nbsp;&nbsp;</td><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">County Change&nbsp;&nbsp;&nbsp;</span></td></table></tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td 	colspan="1<"><span onmouseover="this.style.cursor='help';hover_popup('Enter county name and county code');" onmouseout="hover_clear()" style="cursor: help;"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Transfer to County&nbsp;&nbsp;&nbsp;</span></span></td><td style="padding-top: 2px;padding-bottom: 2px"><input value="" id="section2field20" name="section2field20" size="20"></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+<tr><td><table cellpadding="0" cellspacing="0" id="cb1"><td style="padding-top: 2px;padding-bottom: 2px"><input type="checkbox" name="section2field11" id="section2field11" onclick="section2field11ProcessCheckBox();" check="on" checked></td><td>&nbsp;&nbsp;</td><td 	colspan="1<"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Other&nbsp;&nbsp;&nbsp;</span></td></table></tr>
+<tr>
+<td height="10px"></td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+<br>
+<div id="sectionOpt3" style="display:all;">
+<span style="font-weight:bold;font-style:none;text-decoration:none;font-size:12pt;font-family:Arial">Comments/Description</span>
+<table width="100%" cellspacing="0" cellpadding="0" style="border:1px solid black">
+<tbody>
+<tr>
+<td style="padding: 2px" width="100%">
+<table>
+<tr>
+<td style="padding-top: 2px;padding-bottom: 2px"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Comments/Descriptions&nbsp;&nbsp;&nbsp;</span></td><td><textarea name="section3field12" id="section3field12" cols="64" rows="6"> I do not see MA or Michild for child  for income renewal.  Please send out financial renewal information.  Oracle shows WIC eligibility only.  Checked CHAMPS.  Will mail out MA info.     </textarea></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+<br>
+<div id="sectionOpt4" style="display:all;">
+<span style="font-weight:bold;font-style:none;text-decoration:none;font-size:12pt;font-family:Arial">Analyst Response</span>
+<table width="100%" cellspacing="0" cellpadding="0" style="border:1px solid black">
+<tbody>
+<tr>
+<td style="padding: 2px" width="100%">
+<table>
+<tr>
+<td style="padding-top: 2px;padding-bottom: 2px"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Response&nbsp;&nbsp;&nbsp;</span></td><td><textarea name="section4field13" id="section4field13" cols="64" rows="6">6/16/11  Per CHAMPS child covered by MICHILD 10/1/10-9/30/11-mb (cin # 0001020307)    </textarea></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+<br>
+<div id="sectionOpt5" style="display:all;">
+<span style="font-weight:bold;font-style:none;text-decoration:none;font-size:12pt;font-family:Arial">Consultant Response</span>
+<table width="100%" cellspacing="0" cellpadding="0" style="border:1px solid black">
+<tbody>
+<tr>
+<td style="padding: 2px" width="100%">
+<table>
+<tr>
+<td style="padding-top: 2px;padding-bottom: 2px"><span style="font-weight:none;font-style:none;text-decoration:none;font-size:9.5pt;font-family:Arial">Response&nbsp;&nbsp;&nbsp;</span></td><td><textarea name="section5field13" id="section5field13" cols="64" rows="6">    Okay,  I see Allstate and Express Scripts listed only on CHAMPS.  NO BCBSM for MIChild.  Thanks  </textarea></td>
+</tr>
+<tr>
+<td height="10px"></td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+</div>
+
+</form>
+</body>
+
+</div>
+
+
+</html>
